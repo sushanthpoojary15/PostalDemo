@@ -1,0 +1,56 @@
+﻿#dsh {
+    height: 60px;
+    background-color: #8e6003;
+}
+#hdng {
+    text-align: center;
+    font-weight: bolder;
+
+    font-size:40px;
+}
+
+#subm {
+    background-color: #8e6003
+}
+#closeButton {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 30px;
+    margin-top: 12px;
+    color: white;
+}
+#tableContainer {
+    margin-left: 10px;
+    margin-right: 30px;
+}
+#selectFieldCountry, #selectFieldProduct, #selectFieldPacketSize, #currentprice, #selectField, #packetSize {
+    height: 40px;
+}
+#previewImage {
+    width: 100px;
+    height: 100px;
+}
+#formpacketsize, #formcountry, #formproduct {
+    padding: 20px;
+    /*margin-top: 50px*/
+}
+#formproductpricing {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/*Report Page Css*/
+/*#txtcountry,#txtworkflow,#txtdistributor{
+    height:45px;
+}
+*/
+
+#usr_page_icon img{
+    max-width: 150%;
+}
+
+.red {
+    color: red;
+}
+

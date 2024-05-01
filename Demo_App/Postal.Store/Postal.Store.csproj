@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Postal.Common\Postal.Common.csproj" />
+    <ProjectReference Include="..\Postal.Data\Postal.Data.csproj" />
+  </ItemGroup>
+
 </Project>

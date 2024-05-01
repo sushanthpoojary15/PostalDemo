@@ -1,7 +1,39 @@
+using Microsoft.Identity.Client;
+using Postal.Data.Abstraction;
+using Postal.Data.Business;
+using Postal.Store.Abstraction;
+
+using Postal.Stores.Buisness;
+using System.Diagnostics.Metrics;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
+
+// Configure session options
+builder.Services.AddSession(options =>
+{
+	options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+});
+
+
+var configbuilder = new ConfigurationBuilder()
+		   .AddJsonFile("appSettings.json");
+var Configuration = configbuilder.Build();
+
+
+
+builder.Services.AddScoped<IDatabaseManager, DatabaseManager>();
+builder.Services.AddScoped<IDatabaseHandler, DatabaseHandler>();
+builder.Services.AddScoped<IParamManager, ParamManager>();
+
+builder.Services.AddScoped<IAuthStore, AuthStore>();
+builder.Services.AddScoped<IAccountStore, AccountStore>();
+
+
 
 var app = builder.Build();
 
@@ -22,6 +54,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Login}/{action=Index}/{id?}");
+
+app.UseSession();
 
 app.Run();
